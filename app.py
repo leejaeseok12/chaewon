@@ -21,11 +21,10 @@ w, mag, phase = s1.bode(frequencies)
 
 # Streamlit 앱 구성
 st.title('202021053 이채원')
-st.subheader('폐루프 전달함수')
-st.write('100/(s^2 + 5s + 106)')
+
 
 # 전달함수 그래프
-st.header("Transfer Function Response")
+st.header("폐루프 전달함수")
 fig1, ax1 = plt.subplots()
 t, y, _ = signal.lsim(s1, np.ones_like(t), t)
 ax1.plot(t, y)
@@ -34,7 +33,7 @@ ax1.set_ylabel('Output')
 st.pyplot(fig1)
 
 # Bode Plot
-st.header("Bode Plot")
+st.header("보드선도")
 fig2, (ax2_mag, ax2_phase) = plt.subplots(2, 1)
 ax2_mag.semilogx(w, mag)
 ax2_mag.set_ylabel('Magnitude [dB]')
